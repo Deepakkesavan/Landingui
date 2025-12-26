@@ -1,0 +1,90 @@
+.sidebar-root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  // padding: 2rem 1rem;
+  padding: 2rem 0;
+  overflow-y: auto;
+
+  // padding-top: 35px;
+
+  /* NAV ITEMS */
+  .nav-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    // margin-top: 40px;
+  }
+
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  /* ICON WRAPPER */
+  .icon-container {
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 6px;
+    transition: 0.3s ease;
+  }
+
+  .icon-container i {
+    font-size: 18px;
+    color: white;
+  }
+
+  /* HOVER */
+  .nav-item:hover .icon-container {
+    background: rgba(255, 255, 255, 0.28);
+  }
+
+  .nav-item:hover {
+    color: #fff;
+  }
+
+  /* ACTIVE STATE */
+  .active .icon-container {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .active {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .logout-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: small;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    cursor: pointer;
+    color: white;
+  }
+}

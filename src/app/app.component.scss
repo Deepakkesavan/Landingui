@@ -1,0 +1,11 @@
+.landing {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  overflow-y: scroll; /* scrolling works */
+  scrollbar-width: none; /* Firefox */
+}
+
+.landing::-webkit-scrollbar {
+  display: none; /* Chrome, Edge */
+}

@@ -1,0 +1,23 @@
+<aside class="sidebar-root">
+
+    <!-- Navigation -->
+    <nav class="nav-items">
+        <a *ngFor="let item of navItems" class="nav-item" [routerLink]="item.route" routerLinkActive="active"
+            [title]="item.title" (click)="navigate(item)">
+            <div class="icon-container">
+                <i [class]="item.icon"></i>
+            </div>
+            <span class="label">{{ item.label }}</span>
+        </a>
+    </nav>
+
+    <!-- Logout -->
+    <!-- <div class="logout-section">
+        <button class="logout-btn" (click)="OnLogout()">
+            <div class="icon-container logout-icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <span class="label">Overview</span>
+        </button>
+    </div> -->
+</aside>
