@@ -7,6 +7,8 @@ import { EmsWrapperComponent } from './wrapper-components-mf/ems-wrapper/ems-wra
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { authGuard } from './guards/auth.guard';
 import { OrgWrapperComponent } from './wrapper-components-mf/org-wrapper.component';
+import { OffboardingWrapperComponent } from './wrapper-components-mf/offboarding-wrapper/offboarding-wrapper.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -80,6 +82,10 @@ export const routes: Routes = [
       {
         path: 'orgchart',
         component: OrgWrapperComponent,
+      },
+      {
+        path: 'offboarding',
+        component: OffboardingWrapperComponent, // NEW ROUTE
       },
       { path: '**', redirectTo: 'ems' },
     ],

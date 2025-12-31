@@ -9,5 +9,6 @@ export const environment = {
     pm: 'http://localhost:4204/remoteEntry.js',
     sso: 'http://localhost:5050/remoteEntry.js',
     org: 'http://localhost:4206/remoteEntry.js',
+    offboarding: 'http://localhost:4207/remoteEntry.js', // NEW
   },
 };

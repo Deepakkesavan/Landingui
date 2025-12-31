@@ -83,7 +83,7 @@ export class OverviewComponent implements OnInit {
       description:
         'Start your Offboarding Process and get Approvals from all the Stakeholders.',
       buttonText: 'Open Exit Forms',
-      url: 'Offboarding',
+      url: 'offboarding',
     },
   ];
 

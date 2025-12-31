@@ -9,5 +9,6 @@ export const environment = {
     pm: 'https://people-dev.clarium.tech/pmui/remoteEntry.js',
     sso: 'https://people-dev.clarium.tech/ssoui/remoteEntry.js',
     org: 'https://people-dev.clarium.tech/orgui/remoteEntry.js',
+    offboarding: 'https://people-dev.clarium.tech/offboardingui/remoteEntry.js', // NEW
   },
 };
