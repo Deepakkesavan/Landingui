@@ -5,21 +5,22 @@ import {
   ViewChild,
   OnInit,
   OnDestroy,
+  inject,
 } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { createRoot } from 'react-dom/client';
 import React from 'react';
+import { AppConfigService } from '../../../assets/global-configs/app-config.service';
 
 @Component({
   selector: 'landing-tms-wrapper',
   standalone: true,
-  template: `<div #container></div>`,
-  styleUrls: ['./tms-wrapper.component.scss'],
+  template: `<div #tmsContainer></div>`,
 })
 export class TmsWrapperComponent implements OnInit, OnDestroy {
-  remoteEntry: string = environment.remotes.tms;
+  private readonly config = inject(AppConfigService);
+  remoteEntry: string = this.config.remotes.tms;
   exposedModule = './App';
-  @ViewChild('container', { static: true })
+  @ViewChild('tmsContainer', { static: true })
   container!: ElementRef<HTMLDivElement>;
   private root?: any;
 
@@ -33,14 +34,11 @@ export class TmsWrapperComponent implements OnInit, OnDestroy {
       });
 
       // The React component is assumed to be the default export
-      const ReactComponent = m.default;
-      if (!ReactComponent) {
-        return;
-      }
+      const tmsComponent = m.default;
 
       // Render the React component
       this.root = createRoot(this.container.nativeElement);
-      this.root.render(React.createElement(ReactComponent));
+      this.root.render(React.createElement(tmsComponent));
     } catch (err) {}
   }
 

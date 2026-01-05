@@ -1,0 +1,19 @@
+{
+  "env": "dev",
+
+  "backendUrl": "https://people-dev.clarium.tech/gatewayapi/api",
+  "ssoBackendUrl": "http://localhost:8080/ssoapi",
+  "ssoCustomLoginUrl": "https://people-dev.clarium.tech/custom-login",
+  "projectManagementBackendUrl": "https://people-dev.clarium.tech/gatewayapi/project-management/api",
+  "remotes": {
+    "lms": "http://localhost:4205/remoteEntry.js",
+    "tms": "http://localhost:4201/remoteEntry.js",
+    "org": "http://localhost:4206/remoteEntry.js",
+    "ems": "http://localhost:4202/remoteEntry.js",
+    "rrf": "http://localhost:4203/remoteEntry.js",
+    "pm": "http://localhost:4204/remoteEntry.js",
+    "sso": "http://localhost:5050/remoteEntry.js"
+  },
+
+  "dummyJwtAccessToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWaXZla0t1bWFyU1BTQGNsYXJpdW0udGVjaCIsImVtcElkIjoxMjA3LCJkZXNpZ25hdGlvbiI6IlRyYWluZWUgU29mdHdhcmUgRW5naW5lZXIiLCJpYXQiOjE3NjcwNzc4NjksImV4cCI6MTc2NzA4MTQ2OX0.dMofySb7CeHjXGITW3V1KF_-uUjwuGP4w0gak7TVxWw"
+}

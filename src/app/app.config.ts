@@ -7,14 +7,15 @@ import {
   withInterceptors,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-import { modelInterceptor } from '../interceptors/model.interceptor';
+import { modelInterceptor } from '../interceptors/model-interceptor/model.interceptor';
+import { globalErrorHandlerInterceptor } from '../interceptors/global-err-handling-interceptor/global-error-handler.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(
-      withInterceptors([modelInterceptor]),
+      withInterceptors([modelInterceptor, globalErrorHandlerInterceptor]),
       withInterceptorsFromDi()
     ),
   ],

@@ -1,6 +1,22 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { appConfig } from './app/app.config';
+import { AppConfigService } from './assets/global-configs/app-config.service';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+async function startApp() {
+  const configService = new AppConfigService();
+
+  await configService.load();
+
+  (window as any).MF_RunTime_Config = configService.configuration;
+
+  await bootstrapApplication(AppComponent, {
+    ...appConfig,
+    providers: [
+      ...(appConfig.providers ?? []),
+      { provide: AppConfigService, useValue: configService },
+    ],
+  });
+}
+
+startApp();

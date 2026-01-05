@@ -5,21 +5,22 @@ import {
   ViewChild,
   OnInit,
   OnDestroy,
+  inject,
 } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { createRoot } from 'react-dom/client';
 import React from 'react';
+import { AppConfigService } from '../../../assets/global-configs/app-config.service';
 
 @Component({
   selector: 'landing-ems-wrapper',
   standalone: true,
-  template: `<div #container class="ems-app-wrapper"></div>`,
-  styleUrls: ['./ems-wrapper.component.scss'],
+  template: `<div #emsContainer class="ems-app-wrapper"></div>`,
 })
 export class EmsWrapperComponent implements OnInit, OnDestroy {
-  remoteEntry: string = environment.remotes.ems;
+  private readonly config = inject(AppConfigService);
+  remoteEntry: string = this.config.remotes.ems;
   exposedModule = './App';
-  @ViewChild('container', { static: true })
+  @ViewChild('emsContainer', { static: true })
   container!: ElementRef<HTMLDivElement>;
   private root?: any;
 
@@ -32,15 +33,17 @@ export class EmsWrapperComponent implements OnInit, OnDestroy {
         exposedModule: this.exposedModule,
       });
 
-      // Extract primary color from the host Angular app
-      const primaryColor = getComputedStyle(document.documentElement)
-        .getPropertyValue('--primary')
-        .trim();
+      // // Extract primary color from the host Angular app
+      // const primaryColor = getComputedStyle(document.documentElement)
+      //   .getPropertyValue('--primary')
+      //   .trim();
 
       // Render the React component with the primary color as a prop
-      const ReactComponent = m.default;
+      const emsComponent = m.default;
       this.root = createRoot(this.container.nativeElement);
-      this.root.render(React.createElement(ReactComponent, { primaryColor }));
+      // this.root.render(React.createElement(ReactComponent, { primaryColor }));
+
+      this.root.render(React.createElement(emsComponent));
     } catch (err) {}
   }
 

@@ -5,20 +5,22 @@ import {
   ViewChild,
   OnInit,
   OnDestroy,
+  inject,
 } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { createRoot } from 'react-dom/client';
 import React from 'react';
+import { AppConfigService } from '../../assets/global-configs/app-config.service';
 
 @Component({
   selector: 'landing-org-wrapper',
   standalone: true,
-  template: `<div #container></div>`,
+  template: `<div #orgContainer></div>`,
 })
 export class OrgWrapperComponent implements OnInit, OnDestroy {
-  remoteEntry: string = environment.remotes.org;
+  private readonly config = inject(AppConfigService);
+  remoteEntry: string = this.config.remotes.org;
   exposedModule = './App';
-  @ViewChild('container', { static: true })
+  @ViewChild('orgContainer', { static: true })
   container!: ElementRef<HTMLDivElement>;
 
   private root?: any;
@@ -33,14 +35,11 @@ export class OrgWrapperComponent implements OnInit, OnDestroy {
       });
 
       // The React component is assumed to be the default export
-      const ReactComponent = m.default;
-      if (!ReactComponent) {
-        return;
-      }
+      const orgComponent = m.default;
 
       // Render the React component
       this.root = createRoot(this.container.nativeElement);
-      this.root.render(React.createElement(ReactComponent));
+      this.root.render(React.createElement(orgComponent));
     } catch (err) {}
   }
 

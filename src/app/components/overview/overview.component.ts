@@ -30,7 +30,7 @@ export class OverviewComponent implements OnInit {
 
   cards = [
     {
-      imageUrl: 'assets/lms-bg.jpg',
+      imageUrl: 'assets/images/lms-bg.jpg',
       title: 'Employee Management System',
       description:
         'View and update employee profiles, roles, and essential information.',
@@ -38,7 +38,7 @@ export class OverviewComponent implements OnInit {
       url: 'ems',
     },
     {
-      imageUrl: 'assets/lms-bg.jpg',
+      imageUrl: 'assets/images/lms-bg.jpg',
       title: 'Leave Management System',
       description:
         'Apply for leaves, track leave balances, and view your leave history.',
@@ -46,7 +46,7 @@ export class OverviewComponent implements OnInit {
       url: 'lms',
     },
     {
-      imageUrl: 'assets/timesheet-bg.jpg',
+      imageUrl: 'assets/images/timesheet-bg.jpg',
       title: 'Timesheet',
       description:
         'Log daily work hours, submit timesheets, and monitor approvals.',
@@ -54,7 +54,7 @@ export class OverviewComponent implements OnInit {
       url: 'tms',
     },
     {
-      imageUrl: 'assets/resources-bg.jpg',
+      imageUrl: 'assets/images/resources-bg.jpg',
       title: 'Resource Requisition',
       description:
         'Raise requests and view scheduled interviews for resource needs.',
@@ -62,7 +62,7 @@ export class OverviewComponent implements OnInit {
       url: 'rrf',
     },
     {
-      imageUrl: 'assets/project-management-bg.jpg',
+      imageUrl: 'assets/images/project-management-bg.jpg',
       title: 'Project Management',
       description:
         'Plan and assign tasks, track project progress, and collaborate across teams.',
@@ -70,20 +70,12 @@ export class OverviewComponent implements OnInit {
       url: 'pm',
     },
     {
-      imageUrl: 'assets/announcements-bg.jpg',
+      imageUrl: 'assets/images/announcements-bg.jpg',
       title: 'Org-Charts',
       description:
         'Explore organizational hierarchy and view employee profiles.',
       buttonText: 'Open Org-Charts',
       url: 'orgchart',
-    },
-    {
-      imageUrl: 'assets/Offboarding_Employee_Thumbnail.jpg',
-      title: 'Employee-Offboarding',
-      description:
-        'Start your Offboarding Process and get Approvals from all the Stakeholders.',
-      buttonText: 'Open Exit Forms',
-      url: 'offboarding',
     },
   ];
 

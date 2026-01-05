@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { Observable, catchError, of, tap } from 'rxjs';
-import { environment } from '../../environments/environment';
 import { IUser } from '../models/dashboard.model';
+import { AppConfigService } from '../../assets/global-configs/app-config.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private readonly http = inject(HttpClient);
-  private readonly ssoBackendUrl = environment.ssoBackendApi;
+  private readonly config = inject(AppConfigService);
+  private readonly ssoBackendUrl = this.config.configuration.ssoBackendUrl;
 
   private userSubject = signal<{
     authenticated: boolean;

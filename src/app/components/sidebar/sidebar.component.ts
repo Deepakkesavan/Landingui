@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ViewEncapsulation, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../serivces/auth.service';
 import { CommonModule } from '@angular/common';
@@ -25,7 +25,7 @@ export class SidebarComponent {
     {
       label: 'LMS',
       route: 'lms',
-      icon: 'fa-solid fa-building-circle-arrow-right',
+      icon: 'fa-regular fa-chart-bar',
       title: 'Leave Management System',
     },
     {
@@ -52,21 +52,11 @@ export class SidebarComponent {
       icon: 'fa-regular fa-chart-bar',
       title: 'Organisation Chart',
     },
-    {
-      label: 'Offboarding',
-      route: 'Offboarding',
-      icon: 'fa-solid fa-arrow-right-from-bracket',
-      title: 'Employee Offboarding',
-    },
   ];
 
   navigate(item: any) {
     if (!item || !item.route) return;
 
     this.route.navigate([item.route]);
-  }
-
-  OnLogout() {
-    this.route.navigate(['/overview']);
   }
 }
