@@ -1,21 +1,33 @@
 import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { SnackbarService } from '@clarium/ngce-components';
 
 export const globalErrorHandlerInterceptor: HttpInterceptorFn = (req, next) => {
+  const router = inject(Router);
   req = req.clone({ withCredentials: true });
+  const snackbarService = inject(SnackbarService);
+
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
-      let errorMessage = error.message;
+      let errorMessage = 'Something went wrong';
 
-      // if (error.status === 404) {
-      //   errorMessage = 'User not found';
-      // } else if (error.status === 401) {
-      //   errorMessage = 'Invalid credentials';
-      // } else if (error.status === 400) {
-      //   errorMessage = 'Please enter both username and password';
-      // } else {
-      //   errorMessage = 'Login failed';
-      // }
+      // Check for different error response formats
+      if (error.error) {
+        if (error.error.Errors && error.error.Errors[0]) {
+          errorMessage = error.error.Errors[0].Message || errorMessage;
+        } else if (error.error.errors && error.error.errors[0]) {
+          errorMessage = error.error.errors[0].message || errorMessage;
+        } else if (typeof error.error === 'string') {
+          errorMessage = error.error;
+        }
+      }
+
+      console.error('Global Error:', errorMessage, error);
+
+      snackbarService.show(errorMessage, 'danger');
+      router.navigate(['/login']);
 
       return throwError(() => ({
         status: error.status,

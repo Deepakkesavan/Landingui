@@ -1,0 +1,33 @@
+.search-wrapper {
+  max-width: 520px;
+  position: relative;
+}
+
+.search-wrapper i {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.search-wrapper input {
+  width: 100%;
+  padding: 0.4rem 1rem 0.4rem 2.75rem;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: black;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-wrapper input::placeholder {
+  color: #64748b;
+}
+
+.search-wrapper input {
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15);
+}

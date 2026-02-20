@@ -1,0 +1,32 @@
+:root {
+  /* font family */
+  --font-family-base: "Inter", sans-serif;
+  --font-family-mono: "JetBrains Mono", monospace;
+
+  /* font sizes */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-lg: 1.125rem;
+  --font-xl: 1.25rem;
+
+  /* headings */
+  --font-h1: 2.25rem;
+  --font-h2: 1.875rem;
+  --font-h3: 1.5rem;
+  --font-h4: 1.25rem;
+  --font-h5: 1.1rem;
+  --font-h6: 1rem;
+
+  /* font weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* line heights */
+  --lh-tight: 1.2;
+  --lh-normal: 1.5;
+  --lh-loose: 1.75;
+}

@@ -1,0 +1,181 @@
+{
+  "modules": [
+    {
+      "key": "workforce",
+      "name": "Workforce",
+      "remoteEntry": "http://localhost:4200/remoteEntry.js",
+      "url": "https://workforce-dev.clarium.tech",
+      "subModules": [
+        {
+          "key": "ems",
+          "name": "Employee Management",
+          "remoteEntry": "http://localhost:4202/emsui/remoteEntry.js",
+          "url": "https://workforce-dev.clarium.tech/emsapi",
+          "features": []
+        },
+        {
+          "key": "lms",
+          "name": "Leave Management",
+          "remoteEntry": "http://localhost:4205/lmsui/remoteEntry.js",
+          "url": "https://workforce-dev.clarium.tech/lmsapi",
+          "features": []
+        },
+        {
+          "key": "tms",
+          "name": "Timesheet",
+          "remoteEntry": "http://localhost:4201/tmsui/remoteEntry.js",
+          "url": "https://workforce-dev.clarium.tech/tmsapi",
+          "features": []
+        },
+        {
+          "key": "rrf",
+          "name": "Resource Requisition",
+          "remoteEntry": "http://localhost:4203/remoteEntry.js",
+          "url": "https://workforce-dev.clarium.tech/rrfapi",
+          "features": []
+        },
+        {
+          "key": "pm",
+          "name": "Project Management",
+          "remoteEntry": "http://localhost:4204/pmui/remoteEntry.js",
+          "url": "https://workforce-dev.clarium.tech/pmapi",
+          "features": []
+        },
+        {
+          "key": "org",
+          "name": "Org-Charts",
+          "remoteEntry": "http://localhost:4206/remoteEntry.js",
+          "url": "https://workforce-dev.clarium.tech/emsapi",
+          "features": []
+        },
+        {
+          "key": "offboarding",
+          "name": "Offboarding",
+          "remoteEntry": "https://workforce-dev.clarium.tech/offboardingui/remoteEntry.js",
+          "url": "https://workforce-dev.clarium.tech/offboardingapi",
+          "features": []
+        }
+      ]
+    },
+    {
+      "key": "sso",
+      "name": "Single Sign Out",
+      "remoteEntry": "https://workforce-dev.clarium.tech/remoteEntry.js",
+      "url": "https://workforce-dev.clarium.tech/ssoapi",
+      "subModules": []
+    },
+    {
+      "key": "avd",
+      "name": "Azure Virtual Desktop",
+      "remoteEntry": "https://avd-dev.clarium.tech/remoteEntry.js",
+      "url": "https://avd-dev.clarium.tech",
+      "subModules": [
+        {
+          "key": "dashboard",
+          "name": "Dashboard",
+          "remoteEntry": "",
+          "url": "https://avd-dev.clarium.tech/avdapi",
+          "features": []
+        },
+        {
+          "key": "avd",
+          "name": "Avd",
+          "remoteEntry": "",
+          "url": "https://avd-dev.clarium.tech/avdapi",
+          "features": []
+        },
+        {
+          "key": "softwares",
+          "name": "Softwares",
+          "remoteEntry": "",
+          "url": "https://avd-dev.clarium.tech/avdapi",
+          "features": []
+        },
+        {
+          "key": "softwareManagement",
+          "name": "Software Management",
+          "remoteEntry": "",
+          "url": "https://avd-dev.clarium.tech/avdapi",
+          "features": []
+        },
+        {
+          "key": "vmCatalog",
+          "name": "VM-Catalog",
+          "remoteEntry": "",
+          "url": "https://avd-dev.clarium.tech/avdapi",
+          "features": [
+            {
+              "key": "vmDisk",
+              "name": "VM-Disk"
+            },
+            {
+              "key": "vmImage",
+              "name": "VM-Image"
+            },
+            {
+              "key": "vmOs",
+              "name": "VM-OS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "acm",
+      "name": "Access Control Management",
+      "remoteEntry": "https://acm-dev.clarium.tech/remoteEntry.js",
+      "url": "https://acm-dev.clarium.tech",
+      "subModules": [
+        {
+          "key": "configuration",
+          "name": "Configuration",
+          "remoteEntry": "",
+          "url": "https://acm-dev.clarium.tech/acmapi",
+          "features": [
+            {
+              "key": "modules",
+              "name": "Modules"
+            },
+            {
+              "key": "subModules",
+              "name": "Sub Modules"
+            },
+            {
+              "key": "features",
+              "name": "Features"
+            },
+            {
+              "key": "actions",
+              "name": "Actions"
+            },
+            {
+              "key": "permissions",
+              "name": "Permissions"
+            },
+            {
+              "key": "groups",
+              "name": "Groups"
+            }
+          ]
+        },
+        {
+          "key": "permissionManagement",
+          "name": "Permission Management",
+          "remoteEntry": "",
+          "url": "https://acm-dev.clarium.tech/acmapi",
+          "features": [
+            {
+              "key": "userManagement",
+              "name": "User Management"
+            },
+            {
+              "key": "groupManagement",
+              "name": "Group Management"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dummyJwtAccessToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWaXZla0t1bWFyU1BTQGNsYXJpdW0udGVjaCIsImVtcElkIjoxMjA3LCJkZXNpZ25hdGlvbiI6IlRyYWluZWUgU29mdHdhcmUgRW5naW5lZXIiLCJpYXQiOjE3NzE0OTM0MDYsImV4cCI6MTc3MTQ5NzAwNn0.yzt4znJWWtGM7zLErpDOkNnXCJwQrpwpnhbk54dxka7H8IF8OSj9fqf7q5SmNq-ALFOSSuHVbr2lJ7v2ffJaeg"
+}

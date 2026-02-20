@@ -1,14 +1,55 @@
-<aside class="sidebar-root">
+<aside class="sidebar-root" #mainContainer (click)="closeMore()">
+  <nav class="nav-container">
+    <div *ngFor="let item of visibleItems" class="nav-group">
+      <!-- Parent Item: Icon over Label -->
+      <a
+        class="nav-item"
+        [routerLink]="[layoutState.activeModule()?.key,item.route]"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: false }"
+      >
+        <div class="nav-item-stack">
+          <div class="icon-wrapper">
+            <i [class]="item.icon"></i>
+          </div>
+          <span class="label">{{ item.label }}</span>
+        </div>
+      </a>
+    </div>
 
-    <!-- Navigation -->
-    <nav class="nav-items">
-        <a *ngFor="let item of navItems" class="nav-item" [routerLink]="item.route" routerLinkActive="active"
-            [title]="item.title" (click)="navigate(item)">
-            <div class="icon-container">
-                <i [class]="item.icon"></i>
-            </div>
-            <p class="label">{{ item.label }}</p>
-        </a>
-    </nav>
+    <div *ngIf="overflowItems.length!=0" class="nav-group more-group" #overflowContainer>
+      <div class="nav-item more-icon" (click)="toggleMore($event)">
+        <div class="nav-item-stack">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-ellipsis"></i>
+          </div>
+          <span class="label">More</span>
+        </div>
+      </div>
 
+      <landing-flyout-card
+        [open]="isMoreOpen"
+        [content]="overflowTemplate"
+      ></landing-flyout-card>
+    </div>
+
+    <ng-template #overflowTemplate>
+      <div class="flyout-header">
+        <landing-search-bar (search)="onSearch($event)"></landing-search-bar>
+      </div>
+      <ng-container *ngTemplateOutlet="(filteredModules.length!=0)?moduleTemplate:notFoundTemplate"></ng-container>
+    </ng-template>
+
+    <ng-template #moduleTemplate>
+      <div class="flyout-body">
+        <landing-nav-bar-card *ngFor="let module of filteredModules" [module]="module"></landing-nav-bar-card>
+      </div>
+    </ng-template>
+
+    <ng-template #notFoundTemplate>
+      <div class="not-found">
+        <span>No Modules, Features or Actions found.</span>
+      </div>
+    </ng-template>
+  </nav>
 </aside>

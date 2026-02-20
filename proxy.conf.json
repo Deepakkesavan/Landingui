@@ -1,0 +1,12 @@
+{
+  "/": {
+    "target": "https://workforce-dev.clarium.tech",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/ssoapi": {
+    "target": "https://workspace-dev.clarium.tech",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

@@ -1,0 +1,156 @@
+:root{
+  --font-size-xs: 0.75rem;
+  --font-size-md: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+  --font-size-xxxl: 5rem;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-light: 300;
+  --line-height-base: 1.5;
+  --letter-spacing-normal: 0.03rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-l: 1.25rem;
+  --spacing-xl: 1.5rem;
+  --spacing-xxl: 2rem;
+  --spacing-xxxl: 3rem;
+
+  /* Padding and Margin */
+  --padding-xs: var(--spacing-xs);
+  --padding-sm: var(--spacing-sm);
+  --padding-md: var(--spacing-md);
+  --padding-lg: var(--spacing-lg);
+  --padding-l: var(--spacing-l);
+  --padding-xl: var(--spacing-xl);
+  --margin-xs: var(--spacing-xs);
+  --margin-sm: var(--spacing-sm);
+  --margin-md: var(--spacing-md);
+  --margin-lg: var(--spacing-lg);
+  --margin-l: var(--spacing-l);
+  --margin-xl: var(--spacing-xl);
+
+  /* Borders */
+  --border-radius: 0.25rem;
+  --border-radius-sm: 0.125rem;
+  --border-radius-md: 0.25rem;
+  --border-radius-lg: 0.5rem;
+  --border-radius-xl:0.75rem;
+  --border-radius-l: 0.75rem;
+  --border-radius-xl: 1.25rem;
+  --border-radius-xxl: 1.563rem;
+  --border-radius-xxxl: 1.875rem;
+  --border-width: 1px;
+  --border-style: solid;  
+  --border-radius-pill: 624.938rem;
+  --border-radius-square: 0rem;
+  --border-radius-btntgl: 0.4rem;
+  --border-radius-btntgl-rnd: 2.5rem;
+
+  /* Shadows */
+  --box-shadow-xs: 0 0 5px rgba(0,0,0,0.3);
+  --box-shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.1);
+  --box-shadow-md: 0 4px 10px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+  --box-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.2);
+
+  /* Transition Durations */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Opacity */
+  --opacity-50: 0.5;
+  --opacity-75: 0.75;
+  --opacity-80: 0.8;
+  --opacity-90: 0.9;
+  --opacity-100: 1;
+
+
+  /* Overlay & Backdrop */
+  --overlay: rgba(0, 0, 0, 0.5);
+  --overlay-opacity: 0.3;
+  --backdrop-blur: 1px;
+
+  /* Z-Index */
+  --z-index-modal: 999;
+  --z-index-dropdown: 1000;
+  --z-index-tooltip: 1070;
+
+  /* Divider Variants */
+  --variant: solid;
+
+--success: #267014;
+--success-light: #3F7A28; // Adjusted from #468B2C
+--success-dark: #245B15;
+
+--danger: #A11212;
+--danger-light: #C62828; // Adjusted from #D32F2F
+--danger-dark: #851616;
+
+--warning: #B84E00;
+--warning-light: #C25700; // Adjusted from #E07E00
+--warning-dark: #994400;
+
+--info: #1565C0;
+--info-light: #1A78CC; // Adjusted from #1E88E5
+--info-dark: #1157C6;
+
+--help: #500073;
+--help-light: #7C00FE;
+--help-dark: #5E1675;
+
+--light: #F5F5F5;
+--light-light: #ffffff;
+--light-dark: #D7D7D7;
+
+--dark: #1A1A1D;
+--dark-light: #222422;
+--dark-dark: #000000;
+
+// Neutral Colors (for backgrounds, borders, etc.)
+--neutral-light: #f8f9fa;
+--neutral-medium: #e0e0e0;
+--neutral-dark: #343a40;
+--neutral-darker: #212529;
+
+// Grayscale Shades (for text, borders, backgrounds)
+--gray-100: #f8f9fa;
+--gray-200: #e9ecef;
+--gray-300: #dee2e6;
+--gray-400: #ced4da;
+--gray-500: #adb5bd;
+--gray-600: #6c757d;
+--gray-700: #495057;
+--gray-800: #343a40;
+--gray-900: #212529;
+
+// Accent Colors (for specific interactive elements)
+--accent-1: #ff5722; // Example for special CTA buttons or alerts
+--accent-2: #673ab7; // Another accent for different components
+
+--error: crimson;
+
+  /* Animation */
+  --animation-duration: 0.3s;
+  --animation-easing: ease;
+
+  /* width */
+  --width-xs: 12rem;
+  --width-md: 14rem;
+  --width-lg: 16rem;
+  --height-xs: 2rem;
+  --height-md: 2.5rem;
+  --height-lg: 3rem;
+  --height-xl: 5rem;
+  --height-xxl: 6rem;
+  --height-xxxl: 7rem;
+
+
+}

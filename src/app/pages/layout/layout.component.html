@@ -1,0 +1,19 @@
+<div class="main-layout-container-item">
+
+    <landing-header class="header-item" [name]="username" [greeting]="greeting">
+    </landing-header>
+
+    <landing-sidebar class="sidebar-item" *ngIf="layoutState.activeModule()" [subModules]="layoutState.subModules()"></landing-sidebar>
+
+    <div class="content-item">
+        <landing-hostloader [loading]="(isLoading$ | async) || false">
+        </landing-hostloader>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+        <landing-footer *ngIf="!layoutState.activeModule()"></landing-footer>
+    </div>
+
+    <!--  -->
+
+</div>

@@ -9,7 +9,8 @@ import {
 } from '@angular/core';
 import { createRoot } from 'react-dom/client';
 import React from 'react';
-import { AppConfigService } from '../../assets/global-configs/app-config.service';
+import { LoaderService } from '../serivces/loader.service';
+import { getSubModuleUrlFromStorage } from '../utils/runtime-util';
 
 @Component({
   selector: 'landing-org-wrapper',
@@ -17,8 +18,8 @@ import { AppConfigService } from '../../assets/global-configs/app-config.service
   template: `<div #orgContainer></div>`,
 })
 export class OrgWrapperComponent implements OnInit, OnDestroy {
-  private readonly config = inject(AppConfigService);
-  remoteEntry: string = this.config.remotes.org;
+  private readonly loaderService = inject(LoaderService);
+  remoteEntry: string = getSubModuleUrlFromStorage("workforce", "org");
   exposedModule = './App';
   @ViewChild('orgContainer', { static: true })
   container!: ElementRef<HTMLDivElement>;
@@ -27,6 +28,7 @@ export class OrgWrapperComponent implements OnInit, OnDestroy {
 
   async ngOnInit() {
     try {
+      this.loaderService.setLoading(true);
       // Load the remote module and its exposed component
       const m = await loadRemoteModule({
         type: 'module',
@@ -40,7 +42,11 @@ export class OrgWrapperComponent implements OnInit, OnDestroy {
       // Render the React component
       this.root = createRoot(this.container.nativeElement);
       this.root.render(React.createElement(orgComponent));
-    } catch (err) {}
+    } catch (err) {
+      console.error('Error loading Org remote:', err);
+    } finally {
+      this.loaderService.setLoading(false);
+    }
   }
 
   ngOnDestroy() {

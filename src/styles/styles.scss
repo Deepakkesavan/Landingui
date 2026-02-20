@@ -1,0 +1,453 @@
+/* You can add global styles to this file, and also import other style files */
+@use "./tokens/typography";
+@use "../styles/tokens/colors.scss";
+@use "../styles/tokens/ngcestyle.scss";
+@import "../../node_modules/@clarium/ngce-icon/src/assets/ngce-icons/css/ngce-icon.css";
+// @import "../../node_modules/@clarium/ngce-components/styles/_theme.scss";
+// @import "../../node_modules/@clarium/ngce-components/styles/styles.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+
+lms-root,
+rrf-root,
+pm-root,
+landing-root,
+.landing-root,
+#ems-root,
+#tms-root,
+.ems-app-wrapper,
+.tms-app-wrapper,
+.main-layout-container-item,
+.content-item {
+  font-family: var(--font-family-base) !important;
+  color: var(--text-primary) !important;
+  background-color: var(--bg-page) !important;
+}
+
+body.landing-root {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+}
+
+/* Ensure common block elements within our apps inherit correctly and have normalized spacing */
+lms-root,
+rrf-root,
+pm-root,
+landing-root,
+#ems-root,
+#tms-root {
+
+  p,
+  h1,
+  h2,
+  h3,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li,
+  button,
+  input,
+  select,
+  textarea,
+  a {
+    font-family:  var(--font-family-base) !important;;
+    margin: 0;
+  }
+
+}
+
+.ngce-icon,
+[class^="ngce-"],
+[class*=" ngce-"] {
+  font-family: "ngce-icons" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fa,
+.fas,
+.far,
+.fab,
+.fa-solid,
+.fa-regular,
+.fa-brands,
+[class^="fa-"],
+[class*=" fa-"] {
+  font-family: "Font Awesome 7 Free", "Font Awesome 6 Free", "Font Awesome 5 Free", "FontAwesome" !important;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.material-icons,
+.material-icons-outlined,
+.material-symbols-outlined {
+  font-family: "Material Icons", "Material Icons Outlined",
+    "Material Symbols Outlined" !important;
+}
+
+i[class*="ngce-"],
+i[class*="fa-"],
+span[class*="ngce-"],
+span[class*="fa-"] {
+  font-style: normal;
+}
+
+body {
+  font-family: var(--font-family-base);
+  padding: 0;
+  margin: 0;
+}
+
+/* Scope CSS resets to shell app only */
+landing-root,
+landing-root *,
+landing-root *::before,
+landing-root *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: light dark;
+  /* Unified Theme Color - CHANGE THIS TO UPDATE ALL APPS */
+  --primary: #1a064a;
+  --primary-focus: #200842;
+  --primary-content: #ffffff;
+
+  --light-light: white;
+
+
+  /* NGCE-COMPONENTS INTERNAL THEME (Sync) */
+  --primary-color: var(--primary);
+  --primary-color-lighter: #38306e;
+  --primary-color-light: #280226;
+  --primary-color-dark: #1f011f;
+  --primary-color-darker: #0e0131;
+  --primary-color-hover: var(--primary-focus);
+  --primary-color-focus: var(--primary-focus);
+
+  /* Aliases for components */
+  --color: var(--primary-color-light);
+  --primary-light: var(--primary-color-light);
+  --primary-lighter: var(--primary-color-lighter);
+
+  /* Global Utility Classes (propagated to all apps) */
+  .bg-primary {
+    background-color: var(--primary) !important;
+  }
+
+  .text-primary {
+    color: var(--primary) !important;
+  }
+
+  /* DaisyUI / Tailwind Variable Mappings for React Remotes */
+  --p: var(--primary);
+  --pf: var(--primary-focus);
+  --pc: var(--primary-content);
+  --b1: var(--bg-page);
+  --bc: var(--text-primary);
+
+  /* Legacy Shell Variables - Mapped to Unified Theme */
+  --landing-bg-start: #2b1b61;
+  --landing-bg-mid: #120228;
+  --landing-bg-end: var(--primary);
+  --login-button: linear-gradient(135deg, #3c0473 0%, #1b0842 100%);
+  --search-button: rgba(255, 255, 255, 0.16);
+  --welcome-color: var(--text-secondary);
+  --button-bg: rgba(98, 4, 98, 0.35);
+  --button-text: var(--text-primary);
+  --dashboard-main-color: #18054a;
+}
+
+/* Custom Overrides for NGCE Components */
+ngce-radio-button {
+
+  ::ng-deep .ce-radio-button input:checked~.ce-radio-custom,
+  ::ng-deep .ngce-radio-button input:checked~.ngce-radio-custom {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+  }
+}
+
+ngce-button {
+  ::ng-deep button {
+    font-size: 12px !important;
+    padding: 2px 8px !important;
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  ::ng-deep .ce-button-label,
+  ::ng-deep .ngce-button-label {
+    font-size: 12px !important;
+  }
+
+  ::ng-deep i,
+  ::ng-deep .ngce-icon {
+    font-size: 12px !important;
+  }
+}
+
+/* ==========================================================================
+   GLOBAL DARK MODE OVERRIDES (ULTRA-HIGH SPECIFICITY)
+   Ensures NGCE components and remote apps follow preference
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+
+  :root,
+  .landing-root,
+  lms-root,
+  rrf-root,
+  pm-root,
+  #ems-root,
+  #tms-root {
+    /* NGCE Library Variable Overrides */
+    --light: var(--color-gray-800) !important;
+    --light-light: var(--color-gray-700) !important;
+    --dark: var(--color-gray-100) !important;
+    --neutral-light: var(--color-gray-900) !important;
+    --neutral-medium: var(--color-gray-700) !important;
+    --neutral-dark: var(--color-gray-200) !important;
+
+    /* Semantic Overrides */
+    --bg-page: var(--color-gray-900) !important;
+    --bg-surface: var(--color-gray-800) !important;
+    --text-primary: var(--color-gray-100) !important;
+    --text-secondary: var(--color-gray-300) !important;
+
+    /* Primary Color for Dark Mode (More vibrant) */
+    --primary: #4f46e5 !important;
+    --primary-color: var(--primary) !important;
+
+    /* DaisyUI Mapping */
+    --p: var(--primary) !important;
+    --b1: var(--bg-page) !important;
+    --bc: var(--text-primary) !important;
+  }
+
+  /* GLOBAL ICON & BUTTON CONTENT FIX (Ultra Aggressive) */
+  * {
+    outline-color: var(--border-subtle);
+  }
+
+  /* Force all icons to be white in dark mode if they are inside our apps */
+  .landing-root i,
+  .landing-root .fa,
+  .landing-root .fas,
+  .landing-root .ngce-icon,
+  rrf-root i,
+  rrf-root .fa,
+  rrf-root .fas,
+  rrf-root .ngce-icon,
+  lms-root i,
+  lms-root .fa,
+  lms-root .fas,
+  lms-root .ngce-icon,
+  #ems-root i,
+  #ems-root .fa,
+  #ems-root .fas,
+  #ems-root .ngce-icon,
+  #tms-root i,
+  #tms-root .fa,
+  #tms-root .fas,
+  #tms-root .ngce-icon,
+  .ems-app-wrapper i,
+  .tms-app-wrapper i {
+    color: white !important;
+  }
+
+  /* ABSOLUTE FORCE: All text inside any button must be white in dark mode */
+  button,
+  ngce-button,
+  .btn,
+  .ce-button,
+  .ngce-button {
+    color: white !important;
+
+    ::ng-deep * {
+      color: white !important;
+    }
+  }
+
+  /* Target common button labels directly */
+  .ce-button-label,
+  .ngce-button-label,
+  .button-label,
+  .btn-text,
+  .label-item {
+    color: white !important;
+  }
+
+  /* Base Containers & Cards */
+  .grid-container,
+  .elevated-card,
+  .ce-grid-container,
+  .ce-card-container,
+  ngce-card {
+    background-color: var(--bg-surface) !important;
+    background: var(--bg-surface) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-subtle) !important;
+  }
+
+  /* Grid Header Fix */
+  .grid-header,
+  .ce-grid-header,
+  .ce-grid-header-cell,
+  thead,
+  th,
+  tr:has(th) {
+    background-color: var(--bg-surface) !important;
+    background: var(--bg-surface) !important;
+    color: var(--text-primary) !important;
+    border-bottom: 2px solid var(--border-subtle) !important;
+  }
+
+  /* Grid Rows & Cells */
+  .grid-row,
+  .ce-grid-row,
+  .ce-grid-cell,
+  .grid-cell,
+  tr,
+  td {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Badge/Template Color Overrides */
+  .status-label,
+  .type-label,
+  [class*="status-"],
+  [class*="type-"] {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  }
+
+  /* Semantic Semantic Status colors */
+  .status-Inprogress,
+  .status-in-progress,
+  .type-expansion {
+    color: #fbbf24 !important;
+    background-color: rgba(251, 191, 36, 0.1) !important;
+  }
+
+  .status-approved,
+  .status-Closed,
+  .type-new {
+    color: #34d399 !important;
+    background-color: rgba(52, 211, 153, 0.1) !important;
+  }
+
+  .status-rejected,
+  .status-Rejected {
+    color: #f87171 !important;
+    background-color: rgba(248, 113, 113, 0.1) !important;
+  }
+
+  /* Inputs & Search */
+  .form-field-wrapper,
+  .search-container,
+  input,
+  select {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Global text visibility */
+  h1,
+  h2,
+  h3,
+  h4,
+  .rrf-card-title,
+  .card-count,
+  .header-right h3,
+  .projectName,
+  .card-title {
+    color: var(--text-primary) !important;
+  }
+
+  label,
+  .custom-label,
+  .label,
+  .form-label,
+  .ce-label,
+  .ngce-label,
+  .ce-form-field-label,
+  .ngce-form-field-label,
+  .form-field-label {
+    color: var(--text-primary) !important;
+  }
+
+  /* Force all labels and spans inside remotes to be theme-aware */
+  lms-root,
+  rrf-root,
+  pm-root,
+  landing-root,
+  #ems-root,
+  #tms-root {
+    ::ng-deep {
+
+      label,
+      .label,
+      .form-label,
+      .ce-label,
+      .ngce-label,
+      .ce-form-field-label,
+      .ngce-form-field-label,
+      .form-field-label,
+      .custom-label,
+      .ce-radio-button,
+      .ngce-radio-button,
+      .ce-checkbox,
+      .ngce-checkbox {
+        color: var(--text-primary) !important;
+      }
+
+      input,
+      select,
+      textarea,
+      .form-field-wrapper,
+      .ce-form-field-wrapper,
+      .ngce-form-field-wrapper,
+      .ce-text-input-field,
+      .ngce-text-input-field,
+      .ce-select-wrapper,
+      .ngce-select-wrapper,
+      .ce-textarea-field,
+      .ngce-textarea-field,
+      .custom-date-input,
+      .custom-number-input,
+      .custom-filed input {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        color: var(--text-primary) !important;
+        border-color: var(--border-subtle) !important;
+      }
+
+      input:not([type="checkbox"]):not([type="radio"]),
+      textarea,
+      .ce-select-value,
+      .ngce-select-value {
+        color: var(--text-primary) !important;
+      }
+
+      p,
+      .text-content,
+      .description,
+      span:not([class*="icon"]):not([class*="fa-"]) {
+        color: var(--text-primary) !important;
+      }
+
+      ::placeholder {
+        color: var(--text-muted) !important;
+        opacity: 1 !important;
+      }
+    }
+  }
+}

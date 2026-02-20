@@ -1,5 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'landing-root',

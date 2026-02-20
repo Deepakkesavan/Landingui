@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { Observable, catchError, of, tap } from 'rxjs';
-import { IUser } from '../models/dashboard.model';
+import { IUser } from '../models/layout.model';
+import { LayoutStateService } from './layout-state.service';
 import { AppConfigService } from '../../assets/global-configs/app-config.service';
 
 @Injectable({
@@ -10,7 +11,10 @@ import { AppConfigService } from '../../assets/global-configs/app-config.service
 export class AuthService {
   private readonly http = inject(HttpClient);
   private readonly config = inject(AppConfigService);
-  private readonly ssoBackendUrl = this.config.configuration.ssoBackendUrl;
+  private get ssoBackendUrl(): string {
+    return (this.config.getConfig() as any)?.modules?.find((m: any) => m.key === 'sso')?.url || '';
+  }
+  private readonly layoutState = inject(LayoutStateService);
 
   private userSubject = signal<{
     authenticated: boolean;
@@ -18,8 +22,6 @@ export class AuthService {
   }>({ authenticated: false });
 
   public userSubjectOneSignal = this.userSubject.asReadonly();
-
-  constructor() {}
 
   checkAuthenticationStatus() {
     return this.http
@@ -49,6 +51,7 @@ export class AuthService {
         tap((user) => this.userSubject.set({ authenticated: true, user })),
         catchError(() => {
           this.userSubject.set({ authenticated: false });
+          this.layoutState.clear();
           return of(undefined as any);
         })
       );
@@ -72,6 +75,7 @@ export class AuthService {
 
   clearAuth(): void {
     this.userSubject.set({ authenticated: false });
+    this.layoutState.clear();
   }
 
   isAuthenticated(): boolean {

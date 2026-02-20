@@ -1,0 +1,24 @@
+<div class="dashboard">
+
+    <!-- WELCOME -->
+    <section class="welcome">
+
+        <h1 class="title">
+            Welcome <span class="accent">!</span>
+        </h1>
+
+        <p class="subtitle">
+            Access all your management tools in one place
+        </p>
+
+        <landing-search-bar (search)="onSearch($event)"></landing-search-bar>
+
+    </section>
+
+    <!-- MODULE GRID -->
+    <section class="modules-grid">
+        <landing-module-card *ngFor="let module of filteredModules" [module]="module">
+        </landing-module-card>
+    </section>
+
+</div>

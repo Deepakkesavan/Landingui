@@ -1,0 +1,43 @@
+.dashboard {
+  min-height: 100vh;
+  padding: 2rem 3rem;
+  background: radial-gradient(circle at top, #0b1220, #020617);
+  color: #e5e7eb;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.welcome {
+  text-align: center;
+  margin: 2rem 0 3rem;
+}
+
+.section-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: #3b82f6;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.accent {
+  color: #214279;
+}
+
+.subtitle {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: #94a3b8;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  margin-top: 3rem;
+}
+  
